@@ -28,8 +28,8 @@
   typedef volatile RwReg PortReg;
   typedef uint32_t PortMask;
 #else
-  typedef volatile uint8_t PortReg;
-  typedef uint8_t PortMask;
+  typedef volatile uint32_t PortReg;
+  typedef uint32_t PortMask;
 #endif
 
 #define ST7565_ON  1      // ON pixel
@@ -84,12 +84,12 @@
 class ST7565_LCD : public Adafruit_GFX {
  public:
   // Software SPI with explicit CS pin.
-  ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST, int8_t CS);
+  ST7565_LCD(uint32_t SID, uint32_t SCLK, uint32_t A0, uint32_t RST, uint32_t CS);
   // Software SPI with CS tied to ground.  Saves a pin but other pins can't be shared with other hardware.
-  ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST);
+  ST7565_LCD(uint32_t SID, uint32_t SCLK, uint32_t A0, uint32_t RST);
   // Hardware SPI based on hardware controlled SCK (SCLK) and MOSI (DIN) pins. CS is still controlled by any IO pin.
   // NOTE: MISO and SS will be set as an input and output respectively, so be careful sharing those pins!
-  ST7565_LCD(int8_t A0, int8_t RST, int8_t CS);
+  ST7565_LCD(uint32_t A0, uint32_t RST, uint32_t CS);
 
   void begin(uint8_t contrast);
   void command(uint8_t c);
@@ -105,7 +105,7 @@ class ST7565_LCD : public Adafruit_GFX {
   void scrollUp(uint8_t s);
 
   private:
-  int8_t sid, sclk, a0, rst, cs;
+  uint32_t sid, sclk, a0, rst, cs;
   volatile PortReg  *mosiport, *clkport;
   PortMask mosipinmask, clkpinmask;
 

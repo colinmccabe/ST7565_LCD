@@ -144,7 +144,7 @@ void ST7565_LCD::drawPixel(int16_t x, int16_t y, uint16_t color) {
 }
 
 // software SPI
-ST7565_LCD::ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST, int8_t CS) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
+ST7565_LCD::ST7565_LCD(uint32_t SID, uint32_t SCLK, uint32_t A0, uint32_t RST, uint32_t CS) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
   sid = SID;
   sclk = SCLK;
   a0 = A0;
@@ -152,7 +152,7 @@ ST7565_LCD::ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST, int8_t CS
   cs = CS;
 }
 // software SPI without CS
-ST7565_LCD::ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
+ST7565_LCD::ST7565_LCD(uint32_t SID, uint32_t SCLK, uint32_t A0, uint32_t RST) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
   sid = SID;
   sclk = SCLK;
   a0 = A0;
@@ -160,7 +160,7 @@ ST7565_LCD::ST7565_LCD(int8_t SID, int8_t SCLK, int8_t A0, int8_t RST) : Adafrui
   cs = -1;
 }
 // hardware SPI
-ST7565_LCD::ST7565_LCD(int8_t A0, int8_t RST, int8_t CS) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
+ST7565_LCD::ST7565_LCD(uint32_t A0, uint32_t RST, uint32_t CS) : Adafruit_GFX(LCDWIDTH, LCDHEIGHT) {
   // -1 for din and sclk specify using hardware SPI
   sid = -1;
   sclk = -1;
